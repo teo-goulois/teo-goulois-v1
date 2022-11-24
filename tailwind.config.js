@@ -66,14 +66,14 @@ module.exports = {
           "90%": {
             flexDirection: "column",
             width: "70%",
-            height: '74px'
+            height: '58px'
           },
           to: {
             flexDirection: "column",
             width: "70%",
             transform: "translateY(0)",
             borderRadius: "8px",
-            height: '74px'
+            height: '58px'
           },
         },
         logo: {

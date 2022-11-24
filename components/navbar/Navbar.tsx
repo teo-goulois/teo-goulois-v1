@@ -4,6 +4,8 @@ import HamburgerMenu from "./hamburger/Index";
 import gsap from "gsap";
 
 const Navbar = () => {
+  const ref = useRef<HTMLDivElement | null>(null);
+
   const [open, setOpen] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
@@ -12,15 +14,23 @@ const Navbar = () => {
     gsap.to(window, { duration: 0.5, scrollTo: id });
   };
 
+/*   useEffect(() => {
+    setTimeout(() => {
+      console.log("time out");
+      ref.current?.classList.add("animate-navbarOut");
+    }, 1000);
+  }, [open]); */
+
   return (
     <div
+      ref={ref}
       onMouseEnter={(e) => {
         setIsHovered(true);
       }}
-      className={`fixed mx-auto font-Genos  bg-gray backdrop-blur-[80px] top-8 p-4 text-light-gray flex flex-col  items-center overflow-hidden z-[2]  ${
+      className={`fixed mx-auto font-Genos  bg-gray backdrop-blur-[80px] top-8 px-4 py-2 text-light-gray flex flex-col  items-center overflow-hidden z-[2]  ${
         open
           ? "w-screen h-2/4 border-0 rounded-none  -translate-y-8 justify-start  animate-navbarIn "
-          : "w-[70%] h-[74px] border border-gray rounded-lg animate-navbarOut "
+          : "w-[70%] h-[58px] border border-gray rounded-lg animate-navbarOut"
       } ${!isHovered ? "preload" : ""} `}
     >
       <div className={`flex items-center justify-between w-full`}>

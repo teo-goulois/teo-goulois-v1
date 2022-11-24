@@ -29,8 +29,6 @@ const Particles = () => {
   const endY = useRef(0);
 
   const mouseMoveEvent = (e: MouseEvent) => {
-    console.log("move");
-
     endX.current = e.pageX;
     endY.current = e.pageY;
   };
