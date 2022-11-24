@@ -57,7 +57,6 @@ module.exports = {
         navbarOut: {
           from: {
             flexDirection: "column",
-            justifyContent: "start",
             width: "100vw",
             height: "50%",
             transform: "translateY(-2rem)",
@@ -66,17 +65,15 @@ module.exports = {
           },
           "90%": {
             flexDirection: "column",
-            justifyContent: "start",
-            height: "4rem",
             width: "70%",
+            height: '74px'
           },
           to: {
             flexDirection: "column",
-            justifyContent: "center",
-            height: "4rem",
             width: "70%",
             transform: "translateY(0)",
             borderRadius: "8px",
+            height: '74px'
           },
         },
         logo: {

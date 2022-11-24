@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg: #10101a;
+  --primary: #fff;
+  --gray: rgba(42, 43, 56, 0.5);
+  --light-gray: #ededed;
+}
+
+// disabled scroll bar
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
