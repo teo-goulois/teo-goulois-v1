@@ -6,6 +6,7 @@ import Image from "next/image";
 import NoiseBG from "../components/NoiseBG";
 import { Suspense } from "react";
 import Presentation from "../components/sections/presentation/Presentation";
+import About from "../components/sections/about/About";
 /* import Particles from "../components/custom-cursor/Particles"; */
 
 const Particles = dynamic(
@@ -33,6 +34,7 @@ export default function Home() {
           <Navbar />
 
           <Presentation />
+          <About />
         </div>
         <Particles />
       </Suspense>
