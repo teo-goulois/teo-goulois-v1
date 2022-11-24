@@ -5,7 +5,9 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 import NoiseBG from "../components/NoiseBG";
 import { Suspense } from "react";
+import Presentation from "../components/sections/presentation/Presentation";
 /* import Particles from "../components/custom-cursor/Particles"; */
+
 const Particles = dynamic(
   () => import("../components/custom-cursor/Particles"),
   { ssr: false }
@@ -13,6 +15,7 @@ const Particles = dynamic(
 const Navbar = dynamic(() => import("../components/navbar/Navbar"), {
   suspense: true,
 });
+
 
 export default function Home() {
   return (
@@ -24,10 +27,12 @@ export default function Home() {
       />
       <Suspense fallback={"Loadinge"}>
         <div
-          className={`min-h-screen bg-bg relative flex flex-col items-center`}
+          className={`min-h-screen bg-transparent relative flex flex-col items-center text-primary z-10`}
         >
           <NoiseBG />
           <Navbar />
+
+          <Presentation />
         </div>
         <Particles />
       </Suspense>

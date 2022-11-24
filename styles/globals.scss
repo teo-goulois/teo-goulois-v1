@@ -23,3 +23,24 @@ body::-webkit-scrollbar {
       padding 0s, margin 0s !important;
   }
 }
+
+@layer utilities {
+  .gradient {
+    @apply text-transparent bg-gradient-to-r from-cyan-500 to-violet-500 bg-clip-text bg-[length:400%_400%] animate-gradient;
+  }
+}
+
+.outlineText:hover {
+  color: white;
+  transition: all .5s ease-in-out;
+}
+
+@layer utilities {
+  .outlineText {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+  }
+}
