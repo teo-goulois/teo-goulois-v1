@@ -1,13 +1,19 @@
-import Head from "next/head";
+import { Suspense, useEffect } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
+
 import { NextSeo } from "next-seo";
 
-import Image from "next/image";
+// Components
 import NoiseBG from "../components/NoiseBG";
-import { Suspense } from "react";
+
 import Presentation from "../components/sections/presentation/Presentation";
 import About from "../components/sections/about/About";
-/* import Particles from "../components/custom-cursor/Particles"; */
+import Contact from "../components/sections/contact/Contact";
+// Gsap
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 const Particles = dynamic(
   () => import("../components/custom-cursor/Particles"),
@@ -17,8 +23,23 @@ const Navbar = dynamic(() => import("../components/navbar/Navbar"), {
   suspense: true,
 });
 
-
 export default function Home() {
+  // create smooth scroll
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollToPlugin);
+    let sections: HTMLElement[] = gsap.utils.toArray("section");
+    sections.forEach((section, i) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+      });
+    });
+    /* ScrollTrigger.create({
+      snap: 1 / (sections.length - 1), // snap whole page to the closest section!
+    }); */
+  }, []);
   return (
     <>
       <NextSeo
@@ -35,6 +56,7 @@ export default function Home() {
 
           <Presentation />
           <About />
+          <Contact />
         </div>
         <Particles />
       </Suspense>
