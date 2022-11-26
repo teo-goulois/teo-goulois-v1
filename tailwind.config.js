@@ -29,6 +29,16 @@ module.exports = {
             backgroundPosition: "100% 100%",
           },
         },
+        textApparition: {
+          "0%": {
+            opacity: "0",
+            letterSpacing: "-20px",
+          },
+          to: {
+            opacity: "100",
+            letterSpacing: "7px",
+          },
+        },
         navbarIn: {
           from: {
             flexDirection: "column",
@@ -66,14 +76,14 @@ module.exports = {
           "90%": {
             flexDirection: "column",
             width: "70%",
-            height: '58px'
+            height: "58px",
           },
           to: {
             flexDirection: "column",
             width: "70%",
             transform: "translateY(0)",
             borderRadius: "8px",
-            height: '58px'
+            height: "58px",
           },
         },
         logo: {

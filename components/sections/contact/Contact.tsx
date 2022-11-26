@@ -31,7 +31,7 @@ const Contact = () => {
     >
       <Title number={"04"} title={"contactez moi"} />
 
-      <p className="text-2xl font-Lexend font-semibold text-light-gray">
+      <p className="text-2xl font-semibold text-light-gray">
         Disponible pour tout type de projects contactez moi pour en parler
       </p>
 
@@ -52,7 +52,7 @@ const Contact = () => {
           <p className="">teo.goulois.dev@gmail.com</p>
           <div
             onClick={(e) => e.stopPropagation()}
-            className={` absolute -right-4 translate-x-full cursor-default border border-gray bg-bg text-sm p-2 rounded font-Lexend font-light ${
+            className={` absolute -right-4 translate-x-full cursor-default border border-gray bg-bg text-sm p-2 rounded font-light ${
               open ? "flex opacity-100" : " opacity-0"
             } transition-opacity`}
           >
@@ -98,7 +98,7 @@ const Contact = () => {
       </div>
 
       <div className="flex items-center mt-auto ">
-        <p className="font-Lexend text-2xl">Bye</p>
+        <p className="text-2xl">Bye</p>
         <div className="h-16 aspect-square relative">
           <Image src={PeaceImg} alt="peace" fill />
         </div>

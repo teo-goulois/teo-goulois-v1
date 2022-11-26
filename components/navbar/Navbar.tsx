@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import HamburgerMenu from "./hamburger/Index";
 // Gsap
 import gsap from "gsap";
@@ -9,17 +9,11 @@ const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  const handleScrollTo = (id: string) => {
+  const handleScrollTo = useCallback((id: string) => {
     setOpen(false);
     gsap.to(window, { duration: 0.5, scrollTo: id });
-  };
+  }, []);
 
-/*   useEffect(() => {
-    setTimeout(() => {
-      console.log("time out");
-      ref.current?.classList.add("animate-navbarOut");
-    }, 1000);
-  }, [open]); */
 
   return (
     <div
@@ -27,7 +21,7 @@ const Navbar = () => {
       onMouseEnter={(e) => {
         setIsHovered(true);
       }}
-      className={`fixed mx-auto font-Genos  bg-gray backdrop-blur-[80px] top-8 px-4 py-2 text-light-gray flex flex-col  items-center overflow-hidden z-[2]  ${
+      className={`fixed mx-auto bg-gray backdrop-blur-[80px] top-8 px-4 py-2 text-light-gray flex flex-col  items-center overflow-hidden z-[2]  ${
         open
           ? "w-screen h-2/4 border-0 rounded-none  -translate-y-8 justify-start  animate-navbarIn "
           : "w-[70%] h-[58px] border border-gray rounded-lg animate-navbarOut"
@@ -51,31 +45,31 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`flex flex-col gap-4 w-full p-6 ${
+        className={`flex font-Lexend-Zetta flex-col gap-4 text-lg w-full py-6 px-2 ${
           open ? "scale-x-100 translate-x-0" : "scale-x-0 -translate-x-full"
         } transition-transform duration-500 origin-top-left`}
       >
         <span
           onClick={() => handleScrollTo("#about")}
-          className="text-2xl hover:underline cursor-pointer capitalize"
+          className="hover:underline cursor-pointer capitalize"
         >
           à propo
         </span>
         <span
           onClick={() => handleScrollTo("#projects")}
-          className="text-2xl hover:underline cursor-pointer capitalize"
+          className="hover:underline cursor-pointer capitalize"
         >
           projects
         </span>
         <span
           onClick={() => handleScrollTo("#skills")}
-          className="text-2xl hover:underline cursor-pointer capitalize"
+          className="hover:underline cursor-pointer capitalize"
         >
           compétences
         </span>
         <span
           onClick={() => handleScrollTo("#contact")}
-          className="text-2xl hover:underline cursor-pointer capitalize"
+          className="hover:underline cursor-pointer capitalize"
         >
           contact
         </span>

@@ -32,15 +32,23 @@ body::-webkit-scrollbar {
 
 .outlineText:hover {
   color: white;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 @layer utilities {
   .outlineText {
+    font-family: "Lexend Zetta", "Encode Sans Expanded", sans-serif;
+    font-size: xx-large;
     color: transparent;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     cursor: pointer;
   }
+}
+
+
+.activeTextAnimation {
+  letter-spacing: 7px;
+  opacity: 1;
 }
