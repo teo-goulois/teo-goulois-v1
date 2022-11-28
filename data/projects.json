@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "tweeter",
+    "description": "Un clone simplifié de Twitter.",
+    "technos": ["NextJs", "SWC", "Tailwind"],
+    "desktopImg": "tweeter/1-desktop.jpeg",
+    "mobileImg": "tweeter/1-mobile.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "weather app",
+    "description": "Pour connaître la météo en fonction de sa position.",
+    "technos": ["NextJs", "TypeScript", "Tailwind"],
+    "desktopImg": "weather/1-desktop.jpeg",
+    "mobileImg": "weather/1-mobile.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "country quizz",
+    "description": "Testez vos connaissances en géographie avec ce simple jeu.",
+    "technos": ["React", "TypeScript", "Tailwind", "xstate"],
+    "desktopImg": "country-quizz/1-desktop.jpeg",
+    "mobileImg": "country-quizz/1-mobile.jpeg"
+  }
+]

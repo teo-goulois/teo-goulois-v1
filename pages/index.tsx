@@ -15,6 +15,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import Skills from "../components/sections/skills/Skills";
+import Projects from "../components/sections/projects/Projects";
+/* import Scene from "../components/sections/projects/Scene"; */
 
 const Particles = dynamic(
   () => import("../components/custom-cursor/Particles"),
@@ -22,6 +24,10 @@ const Particles = dynamic(
 );
 const Navbar = dynamic(() => import("../components/navbar/Navbar"), {
   suspense: true,
+});
+const Scene = dynamic(() => import("../components/sections/projects/Scene"), {
+  /* ssr: false, */
+  suspense: true
 });
 
 export default function Home() {
@@ -50,16 +56,17 @@ export default function Home() {
       />
       <Suspense fallback={"Loadinge"}>
         <div
-          className={`min-h-screen font-Lexend bg-transparent relative flex flex-col items-center text-primary z-10`}
+          className={`min-h-screen font-Lexend bg-transparent max-w-screen relative flex flex-col items-center text-primary z-10`}
         >
           <NoiseBG />
           <Navbar />
 
           <Presentation />
           <About />
-
-          {/*  <Skills />
-          <Contact /> */}
+          <Projects />
+           <Skills />
+          <Contact />
+        <Scene />
         </div>
         <Particles />
       </Suspense>

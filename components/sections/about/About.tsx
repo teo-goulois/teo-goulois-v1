@@ -15,13 +15,11 @@ const About = () => {
     ScrollTrigger.create({
       trigger: "#contact-button",
       start: "top 80%+=50px",
-      end: "bottom 50%+=100px",
       toggleClass: "activeTextAnimation",
     });
     ScrollTrigger.create({
       trigger: "#arrow",
       start: "top 80%+=50px",
-      end: "bottom 50%+=100px",
       toggleClass: "activeTextAnimation",
     });
   }, []);
