@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useLayoutEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
@@ -17,6 +17,7 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 import Skills from "../components/sections/skills/Skills";
 import Projects from "../components/sections/projects/Projects";
 /* import Scene from "../components/sections/projects/Scene"; */
+import LocomotiveScroll from 'locomotive-scroll';
 
 const Particles = dynamic(
   () => import("../components/custom-cursor/Particles"),
@@ -27,26 +28,10 @@ const Navbar = dynamic(() => import("../components/navbar/Navbar"), {
 });
 const Scene = dynamic(() => import("../components/sections/projects/Scene"), {
   /* ssr: false, */
-  suspense: true
+  suspense: true,
 });
 
 export default function Home() {
-  // create smooth scroll
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(ScrollToPlugin);
-    let sections: HTMLElement[] = gsap.utils.toArray("section");
-    sections.forEach((section, i) => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top top",
-      });
-    });
-    /* ScrollTrigger.create({
-      snap: 1 / (sections.length - 1), // snap whole page to the closest section!
-    }); */
-  }, []);
   return (
     <>
       <NextSeo
@@ -55,18 +40,18 @@ export default function Home() {
         canonical="https://www.{canonical}.fr/"
       />
       <Suspense fallback={"Loadinge"}>
+        <NoiseBG />
         <div
           className={`min-h-screen font-Lexend bg-transparent max-w-screen relative flex flex-col items-center text-primary z-10`}
         >
-          <NoiseBG />
           <Navbar />
 
           <Presentation />
           <About />
           <Projects />
-           <Skills />
+          <Skills />
           <Contact />
-        <Scene />
+          {/*  <Scene /> */}
         </div>
         <Particles />
       </Suspense>

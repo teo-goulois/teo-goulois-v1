@@ -1,9 +1,4 @@
-import React, {
-  useRef,
-  useEffect,
-  useContext,
-  useState,
-} from "react";
+import React, { useRef, useEffect, useContext, useState } from "react";
 
 import { Canvas, useLoader, extend, useFrame } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
@@ -98,8 +93,8 @@ const Mesh = () => {
   const [imageRatio, setImageRatio] = useState<number>();
   // Load texture and set texture when finished loaded
   useEffect(() => {
+    if (!isHover) return;
     const getTexture = () => {
-      if(!isHover) return
       switch (id) {
         case 1:
           if (window.innerWidth > 1024) {
@@ -123,12 +118,14 @@ const Mesh = () => {
           setImageRatio(Img3Mobile.width / Img3Mobile.height);
           return img3Mobile;
         default:
-          return img1Desktop
+          return img1Desktop;
       }
     };
     const texture = getTexture();
     if (texture !== undefined) {
       uniformRef.current.uTexture = texture;
+    } else {
+      uniformRef.current.uTexture = img1Desktop;
     }
   }, [
     id,
@@ -141,9 +138,6 @@ const Mesh = () => {
     meshProps,
     isHover,
   ]);
-
-
-
 
   // ref
   const planeRef = useRef<MeshType>(null);
@@ -195,7 +189,7 @@ const Mesh = () => {
     return { width, height, vFov };
   }; */
 
-/*   const normalizedValue = (
+  /*   const normalizedValue = (
     x: number,
     in_min: number,
     in_max: number,

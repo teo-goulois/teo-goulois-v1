@@ -2,7 +2,8 @@ import React from "react";
 
 const Presentation = () => {
   return (
-    <div
+    <section
+      data-scroll-section
       id="presentation"
       className={`h-screen w-screen flex flex-col items-center justify-center`}
     >
@@ -15,7 +16,7 @@ const Presentation = () => {
         </span>{" "}
         je suis web développeur front-end
       </p>
-    </div>
+    </section>
   );
 };
 

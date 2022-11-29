@@ -38,7 +38,6 @@ export const ContextProvider = ({ children }: PropsWithChildren) => {
     imgTexture: undefined,
     id:0
   });
-  console.log("🚀 ~ file: Context.tsx ~ line 41 ~ ContextProvider ~ meshProps", meshProps)
 
   const value = { meshProps, setMeshProps };
   

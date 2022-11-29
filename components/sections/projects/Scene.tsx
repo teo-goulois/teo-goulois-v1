@@ -103,7 +103,7 @@ const Scene = () => {
 
   return (
     <div
-      style={meshProps.id !== 0 ? { zIndex: meshProps.id + 1 } : { zIndex: -1 }}
+      style={/* meshProps.id !== 0 ? { zIndex: meshProps.id + 1 } : */ { zIndex: -1 }}
       className="fixed  top-0 left-0 h-screen w-screen "
     >
       <Canvas

@@ -14,31 +14,36 @@ css: 3.12%
 
 */
 
+const Technos: string[] = [
+  "html5/Css3",
+  "javascript",
+  "typescript",
+  "react/nextjs",
+  "tailwind",
+  "responsive design",
+  "git",
+  "mongodb",
+  "supabase/prisma",
+  "threejs",
+  "gsap",
+];
+
 const Skills = () => {
   return (
     <section
+      data-scroll-section
       id="skills"
-      className={`h-screen w-full p-8 pt-24 flex flex-col items-center gap-8`}
+      className={`h-screen w-full p-8 pt-24 flex flex-col items-center gap-8 relative  `}
     >
-      <Title number={"03"} title={"mes compétences"} />
+      <Title number={"03"} title={"compétences"} />
 
-      <div className="z-[2] ">
-        <div className="flex group items-center gap-4 font-bold text-4xl bg-bg p-6 rounded-lg border border-primary  transition-colors">
-          <div className="h-8 group-hover:bg-white group-hover:text-blue-500 textblue bg-bg transition-all">
-            <TypescriptIcon />
-          </div>
-          <div className="relative">
-            <p
-              className={` relative   z-10`}
-            >
-              TypeScript
-            </p>
-            {/* <div
-              className={`bg-red-400 absolute bg-[length:20px_10px] bg-center top-1 left-0  h-full w-[100%]  z-[9]`}
-            ></div> */}
-          </div>
+      {
+        <div className="flex flex-col gap-4 w-full">
+          {Technos.map((item) => {
+            return <p key={item} className="outlineText uppercase font-bold tracking-wide leading-[33px]"> {item} </p>;
+          })}
         </div>
-      </div>
+      }
     </section>
   );
 };

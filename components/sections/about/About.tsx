@@ -25,6 +25,7 @@ const About = () => {
   }, []);
   return (
     <section
+      data-scroll-section
       id="about"
       className={`h-screen w-full p-8 pt-24 flex flex-col items-center gap-8`}
     >
