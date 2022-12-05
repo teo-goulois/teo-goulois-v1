@@ -1,0 +1,41 @@
+// cancel animation on first load
+@layer utilities {
+  .gradient {
+    @apply animate-gradient bg-gradient-to-r from-cyan-500 to-violet-500 bg-[length:400%_400%] bg-clip-text text-transparent;
+  }
+
+  .preload {
+    animation-duration: 0s !important;
+    -webkit-animation-duration: 0s !important;
+    transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s,
+      padding 0s, margin 0s !important;
+  }
+
+  .outlineText:hover {
+    color: white;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .outlineText {
+    font-family: "Lexende Zetta", "Encode Sans Expanded", sans-serif;
+    font-size: xx-large;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  .bigText {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: -0.015;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  
+}

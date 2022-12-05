@@ -1,0 +1,68 @@
+@forward 'globals';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+// disabled scroll bar
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.activeTextAnimation {
+  letter-spacing: 7px;
+  opacity: 1;
+}
+
+
+.menu__item {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.slashAnimation::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15%;
+  width: 3px;
+  height: 70%;
+  background: white;
+  transform-origin: 0 100%;
+  transform: rotate(22.5deg) scale3d(1, 0, 1);
+  transition: transform 0.3s;
+  @media only screen and (max-width: 768px) {
+    content: none;
+  }
+}
+@media (min-width: 900) {
+}
+
+.slashAnimation {
+  text-transform: uppercase;
+  font-weight: bold;
+  white-space: wrap;
+  align-items: center;
+  position: relative;
+  margin-left: 2rem;
+  padding-left: 3rem;
+  opacity: 0;
+  transform: translateX(-1rem);
+  transition: transform 0.3s, opacity 0.3s;
+  @media only screen and (max-width: 768px) {
+    padding-left: 0;
+    margin-left: 0;
+    transform: translateX(0);
+  }
+}
+
+.menu__item:hover .slashAnimation {
+  opacity: 1;
+}
+.menu__item:hover .slashAnimation::before {
+  transform: rotate(22.5deg) scale3d(1, 1, 1);
+}
+

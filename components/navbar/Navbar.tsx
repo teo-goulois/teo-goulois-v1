@@ -25,7 +25,9 @@ const Navbar = ({ sections }: Props) => {
     (id: string) => {
       setOpen(false);
       const target = document.querySelector(id);
-      scroll.scrollTo(target);
+      scroll.scrollTo(target, {
+        offset: '-100'
+      });
     },
     [scroll]
   );
@@ -45,7 +47,7 @@ const Navbar = ({ sections }: Props) => {
       onMouseEnter={(e) => {
         setIsHovered(true);
       }}
-      className={`fixed top-8 z-[12] mx-auto  flex max-h-[300px] w-screen flex-col items-center overflow-hidden bg-gray px-4 py-2  text-light-gray opacity-0 backdrop-blur-[80px]  ${
+      className={`fixed top-8 z-[12] mx-auto  flex max-h-[300px] flex-col items-center overflow-hidden bg-gray px-4 py-2 text-light-gray opacity-0 backdrop-blur-[80px]  ${
         open
           ? "h-2/4 w-screen -translate-y-8 animate-navbarIn  justify-start rounded-none  border-0 "
           : "h-[58px] w-[70%] animate-navbarOut rounded-lg border border-gray"

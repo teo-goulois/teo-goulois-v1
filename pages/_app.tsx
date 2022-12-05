@@ -1,4 +1,4 @@
-import "../styles/globals.scss";
+import "../styles/style.scss";
 import type { AppProps } from "next/app";
 // Context
 import { ContextProvider } from "../context/Context";

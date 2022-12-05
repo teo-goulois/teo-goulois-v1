@@ -25,7 +25,7 @@ const PresentationLazy = dynamic(
   { suspense: true }
 );
 const PresentationLazyReact = lazy(
-  () => import("../components/sections/presentation/Presentation"),
+  () => import("../components/sections/presentation/Presentation")
 );
 
 import About from "../components/sections/about/About";
@@ -127,13 +127,11 @@ export default function Home() {
             </div>
             <main
               id="main-container"
-              className={`max-w-screen relative z-10 flex min-h-screen flex-col items-center bg-transparent font-Lexend text-primary`}
+              className={`max-w-screen lg:w-4/5 lg:mx-auto relative z-10 flex min-h-screen flex-col items-center bg-transparent font-Lexend text-primary`}
               data-scroll-container
               ref={containerRef}
             >
-              <Suspense fallback={<></>}>
-                <PresentationLazyReact />
-              </Suspense>
+              <Presentation />
               <About />
             </main>
           </AnimatePresence>
