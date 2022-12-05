@@ -1,63 +1,83 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+// Gsap
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 // Components
 import Title from "../Title";
 // ---------------------- //
-import { goToSection } from "../../../utils/goToSection";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import useLayoutEffect from "../../../utils/useLayoutEffect";
 
 const About = () => {
-  useEffect(() => {
-    /*  gsap.to("#contact", {
-      scrollTrigger: "#contact-button", // start the animation when ".box" enters the viewport (once)
-      x: 500,
-    }); */
-    ScrollTrigger.create({
-      trigger: "#contact-button",
-      start: "top 80%+=50px",
-      toggleClass: "activeTextAnimation",
-    });
-    ScrollTrigger.create({
-      trigger: "#arrow",
-      start: "top 80%+=50px",
-      toggleClass: "activeTextAnimation",
-    });
+  gsap.registerPlugin(ScrollTrigger);
+
+  const ref = useRef<HTMLDivElement>(null);
+  const ScrollingRef = useRef(null);
+
+  useLayoutEffect(() => {
+    let element = ref.current;
+    let scrollingElement = ScrollingRef.current;
+
+    setTimeout(() => {
+      gsap.set(".text", {
+        transform: "translateY(20px)",
+        opacity: 0,
+      });
+      gsap.to(".text", {
+        scrollTrigger: {
+          start: "top 80%+=100px",
+          trigger: ref.current,
+          end: "bottom +=400",
+          scroller: "#main-container", // locomotive element
+          //markers: true,
+          toggleActions: 'restart pause resume restart'
+        },
+        duration: 1,
+        transform: "translateY(0)",
+        opacity: 1,
+        stagger: 0.1,
+      });
+    }, 1000);
+    ScrollTrigger.refresh();
+
+    return () => {
+      ScrollTrigger.killAll();
+    };
   }, []);
+
   return (
     <section
-      data-scroll-section
       id="about"
-      className={`h-screen w-full p-8 pt-24 flex flex-col items-center gap-8`}
+      data-scroll-target
+      className={`flex w-full h-screen flex-col items-center gap-8 p-8`}
     >
       <Title number={"01"} title={"à propo de moi"} />
 
-      <p className={` text-lg lg:text-2xl font-medium`}>
-        Salut je suis Téo goulois ! <br />
-        <br />
-        Un développeur front-end / fullstack. Passioné pars l’univers tech,
-        j’aime développer tout types de sites.
-        <br />
-        <br />
-        Toujours curieux d&apos;en apprendre plus, Je suis actuellement à la
-        recherche d&apos;une alternance en tant que développeur web.
-        <br />
-        <br />
-        Des questions ? n&apos;hésitez pas à me contacter !
-      </p>
-      <div
-        onClick={() => goToSection("#contact")}
-        className="flex items-center gap-6 cursor-pointer self-start mt-6"
-      >
-        <div
-          id="arrow"
-          className=" transition-opacity opacity-0 relative rounded-md animate-xDeplacement border border-white w-8 h-0 after:content-[''] after:absolute after:translate-x-[75%] after:-translate-y-2/4 after:rotate-45 after:border-t-2 after:border-r-2  after:w-4 after:h-4 after:bg-transparent "
-        ></div>
-        <p
-          id="contact-button"
-          className="uppercase font-bold opacity-0 tracking-[-20px] outlineText text-2xl"
-        >
-          Contact
+      <div className="flex flex-col gap-12 text-lg font-medium lg:text-4xl">
+        <p>Salut je suis Téo goulois !</p>
+        <p>
+          {" "}
+          Un développeur front-end / fullstack. Passioné pars l’univers tech,
+          j’aime développer tout types de sites.
         </p>
+        <p>
+          Toujours curieux d&apos;en apprendre plus, Je suis actuellement à la
+          recherche d&apos;une alternance en tant que développeur web.
+        </p>
+        <p >Des questions ? n&apos;hésitez pas à me contacter !</p>
+      </div>
+      <div>
+        <div
+        ref={ref}
+          className="outlineText textcontainer flex cursor-pointer items-center gap-2 text-2xl font-bold uppercase"
+        >
+          {"contact".split("").map((item, index) => {
+            return (
+              <div key={index} className="text">
+                {item}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

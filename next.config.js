@@ -6,6 +6,7 @@ const withTM = require("next-transpile-modules")([
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  concurrentFeatures: true,
   swcMinify: true,
    webpack: (config) => {
     config.module.rules.push({

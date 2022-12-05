@@ -10,7 +10,7 @@ const Title = ({ title, number }: Props) => {
     <div
       className={`flex items-center w-full  py-4 font-Lexend-Zetta uppercase`}
     >
-      <div className={`flex items-center font-bold text-lg lg:text-2xl `}>
+      <div className={`flex items-center font-bold text-lg lg:text-5xl `}>
         <p className={`gradient`}>{number}.&nbsp;</p>
         <p className={``}>{title}</p>
       </div>
